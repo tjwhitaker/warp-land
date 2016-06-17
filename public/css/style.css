@@ -1,0 +1,80 @@
+header {
+    background:black;
+    color:white;
+    overflow:auto;
+    width:100%;
+}
+
+#hero {
+    position:relative;
+    height:80vh;
+}
+
+#particles {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  height:100%;
+  width:100%;
+  background:black;
+}
+
+#hero-image {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:2;
+  height:100%;
+  width:100%;
+  overflow:auto;
+  background: url("/images/space.png") no-repeat center center;
+  background-size:cover;
+  color:white;
+  text-align:center;
+}
+
+#hero-image:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  height:100%;
+  width:100%;
+  background:rgba(0,0,0,0.4);
+}
+
+#hero-content {
+    position:absolute;
+    color:white;
+    display:inline-block;
+    vertical-align:middle;
+    text-align:center;
+    z-index:100;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+#benefits {
+    max-width:1200px;
+    display:flex;
+    margin:0 auto;
+}
+
+.item {
+    flex:1;
+    border:1px solid black;
+    height:300px;
+    margin:15px;
+}
+
+.logo {
+  color:white;
+  margin:0;
+  z-index:10;
+  text-decoration:none;
+  font-size:1.5rem;
+  padding: 0 5px;
+}
