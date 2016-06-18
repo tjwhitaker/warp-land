@@ -22,25 +22,81 @@
             <div id="particles"></div>
             <div id="hero-image"></div>
             <div id="hero-content">
+                <h1 id="hero-title">High Performance APIs</h1>
+                <p id="hero-description">We build ultra fast, massively parallel backend systems. Add your email below and let's chat about how we can improve the performance of your business.</p>
+                <form id="hero-form">
+                    <input id="hero-input" type="text" placeholder="Your Email" />
+                    <button id="hero-button">Try Warpdrive</button>
+                </form>
             </div>
         </div>
 
-        <div id="benefits">
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
+        <div id="press">
+            <img src="images/press.jpg" />
         </div>
 
-        <div id="video-container">
+        <div id="benefits">
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <img src="http://i.imgur.com/BdDcnpi.jpg" style="visibility:hidden;width:100%;max-height:80vh;">
+            <div class="play-button"></div> 
         </div>
 
         <div id="proof">
         </div>
     </div>
-
+    <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script> 
     <script type="text/javascript" src="js/particles.min.js"></script>
     <script type="text/javascript">
         particlesJS.load('particles', "js/particles.settings");
+    </script>
+    <script>
+        $('.video-container .play-button').click(function() {
+            var natWidth = $('.video-container img')[0].naturalWidth;
+            var natHeight = $('.video-container img')[0].naturalHeight;
+            var scaledWidth = $('.video-container img').width();
+            var scaledHeight = $('.video-container img').height();
+            var ratio = natWidth/natHeight;
+
+            var containerWidth = scaledHeight * ratio;
+            var containerHeight = scaledHeight;
+
+            $('.video-container').css('background-image', 'none');
+            $('.video-container .play-button').remove();
+            
+            $('.video-container').append('<div class="video" style="position:absolute;width:' + containerWidth + 'px;height:' + containerHeight + 'px;margin:auto;top:0;left:0;right:0;bottom:0;"></div>');
+
+            $('.video').append('<iframe width="' + containerWidth + '" height="' + containerHeight + '" src="https://player.vimeo.com/video/83075012?color=ffffff&title=0&byline=0&portrait=0&autoplay=1&autohide=1&iv_load_policy=3&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>');
+        });
+
+        $(window).resize(function() {
+            if ($('.video').length) {
+                var natWidth = $('.video-container img')[0].naturalWidth;
+                var natHeight = $('.video-container img')[0].naturalHeight;
+                var scaledWidth = $('.video-container img').width();
+                var scaledHeight = $('.video-container img').height();
+                var ratio = natWidth/natHeight;
+
+                var containerWidth = scaledHeight * ratio;
+                var containerHeight = scaledHeight;
+            
+                $('.video').css({
+                    'width': containerWidth,
+                    'height': containerHeight
+                });
+                $('.video iframe').css({
+                    'width': containerWidth,
+                    'height': containerHeight
+                });
+            }
+        });
     </script>
 </body>
 </html>
