@@ -1,13 +1,64 @@
 header {
-    background:black;
-    color:white;
-    overflow:auto;
+    background:none;
     width:100%;
+}
+
+p {
+    font-family: merriweather, serif;
+    font-size:1em;
+    line-height:1.5em;
+    letter-spacing:0.1px;
+}
+
+.gradient-bg-1 {
+    background: linear-gradient(to right, rgba(34, 94, 168, 0.6), rgba(29, 145, 192, 0.6));
+/*
+    background: linear-gradient(to right, rgba(227,26,28, 0.6), rgba(252,78,42, 0.6));    
+*/
+}
+
+.gradient-bg-2 {
+
+    background: linear-gradient(to right, rgba(65, 182, 196, 0.5), rgba(127,205,187,0.5));    
+/*
+    background: linear-gradient(to right, rgba(252,78,42,0.5), rgba(253,141,60,0.5));  
+*/
+}
+
+
+#logo {
+    position:absolute;
+    top:5px;
+    left:5px;
+    color:white;
+    margin:0;
+    z-index:10;
+    text-decoration:none;
+    font-size:2rem;
+    line-height:2rem;
+    letter-spacing:1px;
+    font-weight:bold;
+    padding: 0 5px;
+}
+
+#tagline
+{
+    position:absolute;
+    top:5px;
+    right:5px;
+    color:white;
+    margin:0;
+    z-index:10;
+    text-decoration:none;
+    font-size:.75rem;
+    line-height:2rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
 #hero {
     position:relative;
-    height:80vh;
+    height:90vh;
 }
 
 #particles {
@@ -28,7 +79,7 @@ header {
   height:100%;
   width:100%;
   overflow:auto;
-  background: url("/images/space.png") no-repeat center center;
+  background: url("../images/space.png") no-repeat center center;
   background-size:cover;
   color:white;
   text-align:center;
@@ -42,7 +93,7 @@ header {
   z-index:0;
   height:100%;
   width:100%;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.5);
 }
 
 #hero-content {
@@ -73,31 +124,40 @@ header {
     margin:0;
 }
 
-#hero-form {
+#hero-buttons {
     display:flex;
 }
 
-#hero-input {
-    flex:1 0 auto;
-    padding:5px;
-}
-
-#hero-button {
+#hero-buttons button {
     padding:15px;
     margin-left:5px;
-    background:rgb(20,115,180);
     color:white;
     border:3px solid white;
-    flex:0 0 auto;
     text-transform:uppercase;
     letter-spacing:1px;
     cursor:pointer;
-    transition: background 0.3s;
+    flex:1 1 auto;
+    position:relative
 }
 
-#hero-button:hover {
-    background:rgb(10,60,90);
+#hero-buttons button:after {
+    content:'';
+    position:absolute;
+    opacity:0;
+    z-index:-1;
+    background:black;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    transition:all 0.3s;
+    -webkit-backface-visibility: hidden;
 }
+
+#hero-buttons button:hover:after {
+    opacity:1;
+}
+
 
 #press {
     max-width:980px;
@@ -109,16 +169,28 @@ header {
 }
 
 #benefits {
-    max-width:1200px;
+    max-width:960px;
     display:flex;
     margin:0 auto;
 }
 
+.benefit-icon {
+    margin:0 auto;
+    width:150px;
+}
+
+.benefit-title {
+    text-transform:uppercase;
+}
+
+.benefit-description {
+    text-align:justify;
+}
+
 .item {
     flex:1;
-    border:1px solid black;
-    height:300px;
     margin:15px;
+    text-align:center;
 }
 
 .video-container {
@@ -126,7 +198,7 @@ header {
     width:100%;
     margin:0 auto;
     background-color:black;
-    background-image: url('http://i.imgur.com/esS6zjg.jpg');
+    background-image: url('/images/mockup.jpg');
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center top;
@@ -164,13 +236,21 @@ header {
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
 
-.logo {
-  color:white;
-  margin:0;
-  z-index:10;
-  text-decoration:none;
-  font-size:2rem;
-  letter-spacing:1px;
-  font-weight:bold;
-  padding: 0 5px;
+#contact {
+    max-width:600px;
+    margin:0 auto;
+}
+
+#contact h1 {
+    text-align:center;
+}
+
+#contact form fieldset {
+    border:none;
+}
+
+#contact form fieldset input, #contact form fieldset textarea {
+    width:100%;
+    padding:5px;
+    border:1px solid rgb(220,220,220);
 }
